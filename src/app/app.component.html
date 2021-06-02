@@ -1,0 +1,102 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  .container{
+    width: 400px;
+    height: 400px;
+    /* background: #000; */
+  }
+  .title{
+    background: #ccc;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  .content{
+    background: #eee;
+    box-sizing: border-box;
+    padding: 40px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  input{
+    margin-right: 20px;
+    outline: none;
+  }
+  ul{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 80px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 0;
+  }
+  .l-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px 0;
+  }
+  .info{
+    display: flex;
+  }
+  .active{
+    text-decoration: line-through;
+  }
+  .disabled{
+    cursor: ;
+  }
+  .bottom-box{
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+  }
+</style>
+
+<!-- Toolbar -->
+<div class="container">
+  <div class="title">Angular TodoList</div>
+  <div class="content">
+    <input type="text" name="111" [(ngModel)]="username">
+    <button (click)="addData()">增加</button>
+  </div>
+  <ul *ngIf="Alllist.length">
+    <li class="l-item" *ngFor='let item of list'>
+        <div class="info">
+          <input type="checkbox" [(ngModel)]="item.completed" (ngModelChange)="checkName($event, item.id)"/>
+          <div class="name" [class.active]="item.completed">{{item.title}}</div>
+        </div>
+        <button (click)="deleteData(item.id)">删除</button>
+    </li>
+    <div class="bottom-box">
+      <button (click)="changeList('All')" [disabled]="type == 'All'">All</button>
+      <button (click)="changeList('Doing')" [disabled]="type == 'Doing'">Doing</button>
+      <button (click)="changeList('Completed')" [disabled]="type == 'Completed'">Completed</button>
+      <button (click)="clearList()">clear</button>
+    </div>
+  </ul>
+  
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
